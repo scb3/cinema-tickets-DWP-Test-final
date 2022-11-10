@@ -6,7 +6,7 @@ export default class TicketService {
    * Should only have private methods other than the one below.
    */
 
-  //include predefined service methods here
+  //include predefined service methods
   paymentService;
   seatingService;
 
@@ -17,7 +17,7 @@ export default class TicketService {
     INFANT: undefined,
   };
   //Set Max amount of tickets per user
-  maxTickets;
+  maxTickets = 20;
 
   constructor(paymentService, seatingService, prices, maxTickets) {
     //set catches for in case of no tickets and for if price entered is not a number
@@ -34,6 +34,7 @@ export default class TicketService {
     this.prices = prices;
     this.maxTickets = maxTickets;
   }
+
   purchaseTickets(accountId, ...ticketTypeRequests) {
     //throws InvalidPurchaseException
     //Validate that the number of tickets is not greater than the maxTickets
